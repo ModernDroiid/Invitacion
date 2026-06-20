@@ -115,7 +115,7 @@ Asistiremos: ${personas}.
 
 Nos vemos el 18 de julio. 🎓💜`;
 
-        let url = "https://wa.me/573012988549?text=" + encodeURIComponent(mensaje);
+        let url = "https://wa.me/573125579526?text=" + encodeURIComponent(mensaje);
 
         window.open(url, "_blank");
 
