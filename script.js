@@ -102,7 +102,7 @@ confirmar?.addEventListener("click", () => {
 
 Soy ${nombre}.
 
-Confirmo mi asistencia a tu ceremonia de grado.
+Confirmo mi asistencia a tu celebracion de grado.
 
 Asistiremos: ${personas}.
 
