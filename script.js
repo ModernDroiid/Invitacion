@@ -1,44 +1,51 @@
-//========================
-// INICIAR AOS
-//========================
-
+// ========================
+// AOS
+// ========================
 AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 80
+    duration: 1200,
+    once: true
 });
 
-//========================
-// ABRIR INVITACIÓN
-//========================
 
-const botonAbrir = document.getElementById("abrir");
-const hero = document.querySelector(".hero");
-const contenido = document.getElementById("contenido");
+// ========================
+// ABRIR INVITACIÓN (FIX TOTAL)
+// ========================
+document.addEventListener("DOMContentLoaded", () => {
 
-botonAbrir.addEventListener("click", () => {
+    const botonAbrir = document.getElementById("abrir");
+    const hero = document.querySelector(".hero");
+    const contenido = document.getElementById("contenido");
 
-    hero.style.transition = "all 0.6s ease";
-    hero.style.opacity = "0";
+    if (!botonAbrir || !hero || !contenido) {
+        console.error("Error: elementos no encontrados");
+        return;
+    }
 
-    setTimeout(() => {
+    botonAbrir.addEventListener("click", () => {
 
-        hero.style.display = "none";
+        hero.style.transition = "all .6s ease";
+        hero.style.opacity = "0";
+        hero.style.transform = "scale(0.95)";
 
-        contenido.style.display = "block";
-        contenido.style.opacity = "1";
-        contenido.style.transform = "none";
+        setTimeout(() => {
+            hero.style.display = "none";
+            contenido.style.display = "block";
 
-        window.scrollTo({ top: 0 });
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
-    }, 600);
+        }, 600);
+
+    });
 
 });
 
-//========================
+
+// ========================
 // CUENTA REGRESIVA
-//========================
-
+// ========================
 const fechaEvento = new Date("July 18, 2026 19:00:00").getTime();
 
 const dias = document.getElementById("dias");
@@ -49,186 +56,119 @@ const segundos = document.getElementById("segundos");
 setInterval(() => {
 
     const ahora = new Date().getTime();
-
     const distancia = fechaEvento - ahora;
 
     if (distancia <= 0) {
-
         dias.innerHTML = "00";
         horas.innerHTML = "00";
         minutos.innerHTML = "00";
         segundos.innerHTML = "00";
-
         return;
-
     }
 
     dias.innerHTML = Math.floor(distancia / (1000 * 60 * 60 * 24));
-
     horas.innerHTML = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
     minutos.innerHTML = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-
     segundos.innerHTML = Math.floor((distancia % (1000 * 60)) / 1000);
 
 }, 1000);
 
-//========================
-// CONFIRMAR ASISTENCIA
-//========================
 
+// ========================
+// WHATSAPP CONFIRMAR
+// ========================
 const confirmar = document.getElementById("confirmar");
+const rechazar = document.getElementById("rechazar");
 
-confirmar.addEventListener("click", () => {
+confirmar?.addEventListener("click", () => {
 
-    let nombre = document.getElementById("nombre").value.trim();
+    const nombre = document.getElementById("nombre").value.trim();
+    const personas = document.getElementById("personas").value || "1 Persona";
 
-    let personas = document.getElementById("personas").value;
-
-    if (nombre === "") {
-
+    if (!nombre) {
         alert("Por favor escribe tu nombre.");
-
         return;
-
     }
 
     confetti({
-
-        particleCount: 250,
-        spread: 180,
-        origin: {
-            y: 0.6
-        }
-
+        particleCount: 200,
+        spread: 160,
+        origin: { y: 0.6 }
     });
 
-    setTimeout(() => {
+    const telefono = "573125579526";
 
-        let mensaje = `Hola Stefany 😊
-        
-    Soy ${nombre}.
-        
-    Confirmo mi asistencia a tu ceremonia de grado.
-        
-    Asistiremos: ${personas}.
-        
-    Nos vemos el 18 de julio. 🎓💜`;
-        
-        const telefono = "573125579526"; // 👈 tu número aquí
-        
-        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-        
-        // 🔥 método más compatible
-        const link = document.createElement("a");
-        link.href = url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-
-}, 1200);
-
-});
-
-//========================
-// NO ASISTIRÉ
-//========================
-
-const rechazar = document.getElementById("rechazar");
-
-rechazar.addEventListener("click", () => {
-
-    let nombre = document.getElementById("nombre").value.trim();
-
-    if (nombre === "") {
-
-        nombre = "Sin nombre";
-
-    }
-
-    let mensaje = `Hola Stefany.
+    const mensaje = `Hola Stefany 😊
 
 Soy ${nombre}.
 
-Lamentablemente no podré asistir a tu ceremonia de grado.
+Confirmo mi asistencia a tu ceremonia de grado.
 
-Te deseo muchos éxitos en esta nueva etapa. 💜`;
+Asistiremos: ${personas}.
 
-    let url = "https://wa.me/573125579526?text=" + encodeURIComponent(mensaje);
+Nos vemos el 18 de julio 🎓💜`;
 
-    window.open(url, "_blank");
+    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
 
+    window.location.href = url;
 });
 
-//========================
-// EFECTO BOTONES
-//========================
 
+// ========================
+// WHATSAPP RECHAZAR
+// ========================
+rechazar?.addEventListener("click", () => {
+
+    let nombre = document.getElementById("nombre").value.trim();
+    if (!nombre) nombre = "Sin nombre";
+
+    const telefono = "573125579526";
+
+    const mensaje = `Hola Stefany.
+
+Soy ${nombre}.
+
+Lamentablemente no podré asistir.
+
+Te deseo muchos éxitos 💜`;
+
+    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+    window.location.href = url;
+});
+
+
+// ========================
+// EFECTOS UI
+// ========================
+
+// botones hover suave
 document.querySelectorAll("button").forEach(boton => {
-
     boton.addEventListener("mouseenter", () => {
-
         boton.style.transform = "translateY(-4px)";
-
     });
 
     boton.addEventListener("mouseleave", () => {
-
         boton.style.transform = "translateY(0px)";
-
     });
-
 });
 
-//========================
-// EFECTO TARJETAS
-//========================
 
+// tarjetas hover
 document.querySelectorAll(".card,.dress-card,.box").forEach(card => {
-
     card.addEventListener("mouseenter", () => {
-
         card.style.transform = "translateY(-12px) scale(1.03)";
-
     });
 
     card.addEventListener("mouseleave", () => {
-
         card.style.transform = "translateY(0px) scale(1)";
-
     });
-
 });
 
-//========================
-// SCROLL ARRIBA
-//========================
 
+// ========================
+// SCROLL INICIAL
+// ========================
 window.addEventListener("load", () => {
-
     window.scrollTo(0, 0);
-
 });
-
-function crearCorazones() {
-    const container = document.querySelector(".hearts");
-
-    for (let i = 0; i < 30; i++) {
-        let heart = document.createElement("div");
-        heart.classList.add("heart");
-
-        heart.innerHTML = "❤";
-
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = (10 + Math.random() * 25) + "px";
-        heart.style.animationDuration = (4 + Math.random() * 6) + "s";
-        heart.style.animationDelay = Math.random() * 5 + "s";
-        heart.style.opacity = Math.random();
-
-        container.appendChild(heart);
-    }
-}
-
-crearCorazones();
