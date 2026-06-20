@@ -96,13 +96,13 @@ confirmar?.addEventListener("click", () => {
         origin: { y: 0.6 }
     });
 
-    const telefono = "573125579526";
+    const telefono = "573012988549";
 
     const mensaje = `Hola Stefany 😊
 
 Soy ${nombre}.
 
-Confirmo mi asistencia a tu ceremonia de grado.
+Confirmo mi asistencia a tu celebración de grado.
 
 Asistiremos: ${personas}.
 
