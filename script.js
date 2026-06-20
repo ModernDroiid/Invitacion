@@ -96,7 +96,7 @@ confirmar?.addEventListener("click", () => {
         origin: { y: 0.6 }
     });
 
-    const telefono = "573125579526";
+    const telefono = "573012988549";
 
     const mensaje = `Hola Stefany 😊
 
@@ -122,7 +122,7 @@ rechazar?.addEventListener("click", () => {
     let nombre = document.getElementById("nombre").value.trim();
     if (!nombre) nombre = "Sin nombre";
 
-    const telefono = "573125579526";
+    const telefono = "573012988549";
 
     const mensaje = `Hola Stefany.
 
