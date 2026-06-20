@@ -106,20 +106,29 @@ confirmar.addEventListener("click", () => {
     setTimeout(() => {
 
         let mensaje = `Hola Stefany 😊
+        
+    Soy ${nombre}.
+        
+    Confirmo mi asistencia a tu ceremonia de grado.
+        
+    Asistiremos: ${personas}.
+        
+    Nos vemos el 18 de julio. 🎓💜`;
+        
+        const telefono = "573125579526"; // 👈 tu número aquí
+        
+        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+        
+        // 🔥 método más compatible
+        const link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
 
-Soy ${nombre}.
-
-Confirmo mi asistencia a tu ceremonia de grado.
-
-Asistiremos: ${personas}.
-
-Nos vemos el 18 de julio. 🎓💜`;
-
-        let url = "https://wa.me/573125579526?text=" + encodeURIComponent(mensaje);
-
-        window.open(url, "_blank");
-
-    }, 1200);
+}, 1200);
 
 });
 
