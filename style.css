@@ -1,0 +1,489 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top: 20px;
+}
+
+body{
+    background:#faf8fc;
+    font-family:'Montserrat',sans-serif;
+    color:#444;
+    overflow-x:hidden; /* SOLO horizontal */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===========================
+    FONDO
+=========================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top right,#ece2ff 0%,transparent 30%),
+    radial-gradient(circle at bottom left,#d9ecff 0%,transparent 35%),
+    #faf8fc;
+
+    z-index:-3;
+}
+
+/* ===========================
+    FLORES
+=========================== */
+
+.flor{
+    position:fixed;
+    width:280px;
+    pointer-events:none;
+    z-index:-1;
+    opacity:.95;
+}
+
+.flor1{
+    top:0;
+    left:0;
+}
+
+.flor2{
+    right:0;
+    bottom:0;
+    transform:rotate(180deg);
+}
+
+/* ===========================
+    HERO (PORTADA SIN SCROLL)
+=========================== */
+
+.hero{
+    height:100vh;
+    height:100dvh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center; /* 🔥 vuelve al centro vertical */
+
+    text-align:center;
+
+    padding:20px;
+
+    overflow:hidden;
+}
+
+.hero-content{
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(15px);
+    border-radius:30px;
+
+    padding: clamp(20px, 4vw, 40px);
+
+    width:90%;
+    max-width:700px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+    max-height:95dvh;
+    overflow:hidden;
+}
+
+/* ===========================
+    TEXTOS HERO
+=========================== */
+
+.balanza{
+    font-size:70px;
+    color:#7156b3;
+    margin-bottom:20px;
+}
+
+footer i{
+    font-size:40px;
+    color:#7156b3;
+    margin-bottom:15px;
+}
+
+.nombre{
+    font-family:"Great Vibes",cursive;
+    font-size: clamp(28px, 5vw, 55px);
+    color:#7156b3;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size: clamp(28px, 5vw, 55px);
+    font-weight:500;
+    margin-bottom:10px;
+}
+
+.hero span{
+    display:block;
+    color:#8562d4;
+    letter-spacing:5px;
+    font-size: clamp(40px, 7vw, 70px);
+}
+
+.hero p{
+    font-size:18px;
+    color:#777;
+    margin-bottom:35px;
+}
+
+/* ===========================
+    BOTÓN
+=========================== */
+
+#abrir{
+    border:none;
+    background:#7d63c9;
+    color:white;
+    font-size:18px;
+    padding:18px 45px;
+    border-radius:50px;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:0 10px 25px rgba(125,99,201,.35);
+}
+
+#abrir:hover{
+    transform:translateY(-5px);
+    background:#6b4fc2;
+}
+
+/* ===========================
+    MAIN (INVITACIÓN)
+=========================== */
+
+main{
+    width:min(1100px,92%);
+    margin:auto;
+    display:none;
+    opacity:1;
+    transform:none;
+}
+
+/* ===========================
+    SECCIONES
+=========================== */
+
+section{
+    opacity: 1 !important;
+    transform: none !important;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+    margin: 90px, 0;
+}
+
+section.aos-animate{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2{
+    text-align:center;
+    font-size:42px;
+    font-family:"Cormorant Garamond";
+    color:#6b4fc2;
+    margin-bottom:50px;
+}
+
+/* ===========================
+    MENSAJE
+=========================== */
+
+.mensaje{
+    background:white;
+    border-radius:30px;
+    padding:45px;
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+    margin-top: 40px;
+    padding: 70px, 50px;
+    border-radius: 30px;
+}
+
+.mensaje p{
+    font-size:20px;
+    line-height:1.9;
+    text-align:center;
+}
+
+/* ===========================
+    CONTADOR
+=========================== */
+
+.contador-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.box{
+    background:white;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+.box span{
+    display:block;
+    font-size:60px;
+    color:#7657d5;
+    font-weight:bold;
+}
+
+.box small{
+    font-size:18px;
+    color:#888;
+}
+
+/* ===========================
+    TARJETAS
+=========================== */
+
+.evento{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    text-align:center;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card i{
+    font-size:45px;
+    color:#6b4fc2;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card a{
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    color:white;
+    background:#6b4fc2;
+    padding:12px 25px;
+    border-radius:30px;
+}
+
+/* ===========================
+    VESTIMENTA
+=========================== */
+
+.dress{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.dress-card{
+    background:white;
+    border-radius:25px;
+    padding:45px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.dress-card i{
+    font-size:60px;
+    color:#7156b3;
+    margin-bottom:20px;
+}
+
+/* ===========================
+    SOBRES
+=========================== */
+
+.sobres{
+    background:white;
+    padding:60px;
+    border-radius:30px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.sobres i{
+    font-size:70px;
+    color:#7156b3;
+    margin-bottom:25px;
+}
+
+/* ===========================
+    FORMULARIO
+=========================== */
+
+.confirmacion{
+    background:white;
+    border-radius:30px;
+    padding:50px;
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+input,
+select{
+    padding:18px;
+    border-radius:15px;
+    border:1px solid #ddd;
+    font-size:17px;
+}
+
+#confirmar{
+    background:#7156b3;
+    color:white;
+    border:none;
+    padding:18px;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.no{
+    background:white;
+    color:#7156b3;
+    border:2px solid #7156b3;
+    padding:18px;
+    border-radius:40px;
+    cursor:pointer;
+}
+
+/* ===========================
+    FOOTER
+=========================== */
+
+footer{
+    text-align:center;
+    padding:70px 0;
+}
+
+footer img{
+    width:90px;
+    margin-bottom:20px;
+}
+
+footer h2{
+    font-family:"Great Vibes";
+    font-size:60px;
+    color:#7156b3;
+}
+
+footer p{
+    margin-top:20px;
+    color:#777;
+}
+
+.card,
+.box,
+.dress-card,
+.mensaje,
+.sobres,
+.confirmacion{
+    margin-bottom: 25px;
+}
+
+.evento,
+.dress,
+.contador-grid{
+    gap: 30px;
+}
+
+.hearts{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+/* cada corazón */
+.heart{
+    position:absolute;
+    top:-10%;
+    font-size:20px;
+    color:#b86bff;
+    animation: fallHeart linear infinite;
+    opacity:0.8;
+}
+
+@keyframes fallHeart{
+    0%{
+        transform: translateY(-10vh) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        transform: translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ===========================
+    RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero span{
+    font-size:52px;
+}
+
+.nombre{
+    font-size:48px;
+}
+
+.contador-grid,
+.evento,
+.dress{
+    grid-template-columns:1fr;
+}
+
+.flor{
+    max-width:200px;
+    max-height:200px;
+}
+
+section{
+    margin:80px 0;
+}
+
+}
+

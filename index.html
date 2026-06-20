@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Invitación | Grado de Stefany Fernández</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ❤️ corazones (esto sí lo dejamos) -->
+    <div class="hearts"></div>
+
+    <!-- Portada -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <i class="fa-solid fa-scale-balanced balanza"></i>
+
+            <h2 class="nombre">Stefany Fernández</h2>
+
+            <h1>
+                ¡Me gradué como
+                <span>ABOGADA</span>
+            </h1>
+
+            <p>
+                Cada meta alcanzada marca el inicio de un nuevo camino.
+            </p>
+
+            <button id="abrir">
+                Abrir Invitación
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Invitación -->
+    <main id="contenido">
+
+        <section class="mensaje" data-aos="fade-up">
+
+            <h2>Con mucho cariño</h2>
+
+            <p>
+                Hoy culmino una etapa llena de esfuerzo, dedicación y sueños cumplidos.
+                Me haría muy feliz contar con tu presencia para celebrar este momento tan importante en mi vida.
+            </p>
+
+        </section>
+
+        <section class="contador" data-aos="zoom-in">
+
+            <h2>Cuenta regresiva</h2>
+
+            <div class="contador-grid">
+
+                <div class="box">
+                    <span id="dias">00</span>
+                    <small>Días</small>
+                </div>
+
+                <div class="box">
+                    <span id="horas">00</span>
+                    <small>Horas</small>
+                </div>
+
+                <div class="box">
+                    <span id="minutos">00</span>
+                    <small>Minutos</small>
+                </div>
+
+                <div class="box">
+                    <span id="segundos">00</span>
+                    <small>Segundos</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="evento">
+
+            <div class="card" data-aos="fade-right">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h3>Fecha</h3>
+                <p>18 de Julio de 2026</p>
+            </div>
+
+            <div class="card" data-aos="fade-up">
+                <i class="fa-solid fa-clock"></i>
+                <h3>Hora</h3>
+                <p>7:00 PM</p>
+            </div>
+
+            <div class="card" data-aos="fade-left">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3>Lugar</h3>
+                <p>Salón Comunal</p>
+                <a href="https://maps.app.goo.gl/QyzrMP8uSBFgRbpT7" target="_blank">
+                    Ver ubicación
+                </a>
+            </div>
+
+        </section>
+
+        <section class="vestimenta">
+
+            <h2 data-aos="fade-up">Código de Vestimenta</h2>
+
+            <div class="dress">
+
+                <div class="dress-card" data-aos="flip-left">
+                    <i class="fa-solid fa-person-dress"></i>
+                    <h3>Ellas</h3>
+                    <p>Divinas</p>
+                </div>
+
+                <div class="dress-card" data-aos="flip-right">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h3>Ellos</h3>
+                    <p>Elegantes</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="sobres" data-aos="zoom-in">
+
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <h2>Lluvia de Sobres</h2>
+            <p>
+                El mejor regalo será compartir contigo este momento.
+            </p>
+
+        </section>
+
+        <section class="confirmacion">
+
+            <h2>Confirmar asistencia</h2>
+
+            <form id="formulario">
+
+                <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+
+                <select id="personas">
+                    <option>1 Persona</option>
+                    <option>2 Personas</option>
+                </select>
+
+                <button type="button" id="confirmar">Confirmar asistencia</button>
+
+                <button type="button" class="no" id="rechazar">No podré asistir</button>
+
+            </form>
+
+        </section>
+
+        <footer>
+
+            <i class="fa-solid fa-scale-balanced"></i>
+
+            <h2>¡Te esperamos!</h2>
+
+            <p>Gracias por hacer parte de este momento tan especial.</p>
+
+        </footer>
+
+    </main>
+
+    <!-- Librerías -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+
+</body>
+</html>
